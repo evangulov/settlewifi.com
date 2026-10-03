@@ -16,6 +16,24 @@
   });
 
   // ---- phone menu
+  var langB = $('.lang-b'), langM = $('#langm');
+  if (langB && langM) {
+    var setLang = function (open) { langM.hidden = !open; langB.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+    langB.addEventListener('click', function (e) {
+      e.stopPropagation(); setLang(langM.hidden);
+      if (!langM.hidden) { var c = $('a[aria-current]', langM) || $('a', langM); c.focus(); }
+    });
+    document.addEventListener('click', function (e) { if (!langM.hidden && !langM.contains(e.target)) setLang(false); });
+    document.addEventListener('keydown', function (e) {
+      if (langM.hidden) return;
+      if (e.key === 'Escape') { setLang(false); langB.focus(); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        var items = $$('a', langM), i = items.indexOf(document.activeElement);
+        items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); e.preventDefault();
+      }
+    });
+    langM.addEventListener('focusout', function (e) { if (!langM.contains(e.relatedTarget) && e.relatedTarget !== langB) setLang(false); });
+  }
   var burger = $('.burger'), mnav = $('#mnav');
   if (burger && mnav) {
     var setMenu = function (open) {
@@ -26,7 +44,7 @@
     burger.addEventListener('click', function () { setMenu(mnav.hidden); });
     $$('a', mnav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !mnav.hidden) { setMenu(false); burger.focus(); } });
-    window.matchMedia('(min-width: 701px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+    window.matchMedia('(min-width: 1001px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
   }
 
 

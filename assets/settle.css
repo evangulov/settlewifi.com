@@ -270,6 +270,22 @@ section[id],#how{scroll-margin-top:84px}
 .mnav a:not(.btn){display:flex;align-items:center;justify-content:space-between;min-height:56px;font-size:22px;font-weight:600;letter-spacing:-.01em;border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none}
 .mnav a span{color:#6e6e73;font-weight:400}
 .mnav .btn{margin-top:20px;justify-content:center;width:100%;box-sizing:border-box}
+.mlang{display:flex;align-items:center;justify-content:space-between;min-height:64px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mlang>span{font-size:17px;color:#a1a1a6}
+.seg{display:flex;padding:3px;border-radius:22px;background:rgba(255,255,255,.1)}
+.mnav .seg a:not(.btn){min-height:40px;padding:0 16px;display:flex;align-items:center;border:0;border-radius:19px;font-size:15px;font-weight:600;letter-spacing:0;color:#a1a1a6}
+.mnav .seg a[aria-current]{background:#f5f5f7;color:#1d1d1f}
+/* header: below 1000 px the links, globe and button don't fit in one row — the menu takes them */
+@media (max-width:1000px){.navl,.top .btn-s,.lang{display:none}.burger{display:block}}
+/* language: globe in the header */
+.lang{position:relative}
+.lang-b{height:36px;padding:0 10px;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:18px;background:transparent;color:#c7c7cc;font:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s ease,color .2s ease}
+.lang-b:hover,.lang-b[aria-expanded="true"]{background:rgba(255,255,255,.12);color:#f5f5f7}
+.lang-b svg{width:18px;height:18px;display:block}
+.lang-m{position:absolute;right:0;top:calc(100% + 10px);min-width:200px;padding:6px;box-sizing:border-box;border-radius:14px;background:#2a2a2e;box-shadow:0 20px 50px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column;z-index:30;animation:menuIn .18s var(--ease)}
+.lang-m[hidden]{display:none}
+.lang-m a{display:flex;align-items:center;justify-content:space-between;min-height:40px;padding:0 12px;border-radius:9px;color:#f5f5f7;font-size:15px;text-decoration:none}
+.lang-m a:hover,.lang-m a:focus-visible{background:rgba(255,255,255,.1);outline:none}
 @keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 /* hero: title, then text and buttons in one column */
 .h1{font-size:clamp(46px,7.2vw,104px)}
@@ -337,7 +353,7 @@ section[id],#how{scroll-margin-top:84px}
 @media (max-width:1100px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.sits{grid-template-columns:1fr}.sit-stage{--z:1.15;min-height:400px;order:-1}.sit-list{grid-template-columns:1fr 1fr}.sit-d{display:block}}
 @media (max-width:900px){.stage{--s:1.2;height:400px}.tiles{grid-template-columns:1fr}}
 @media (max-width:700px){
- .navl,.top .btn-s{display:none}.burger{display:block}.top-in{height:64px}
+ .top-in{height:64px}
  .hero{padding:48px 0 64px}.hero .wrap{gap:40px}.hero-grid{gap:28px}.hero-side{gap:28px}
  .btns{flex-wrap:nowrap;gap:10px}.hero .btn{height:48px;padding:0 16px;font-size:16px}
  .stage{--s:1.05;height:320px}.pausebtn{display:none}
