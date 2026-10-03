@@ -139,11 +139,20 @@
     var DUR = [2000, 2600, 3400, 1400, 2600, 1400, 6500], STEP_OF = [0, 1, 2, 3, 3, 3, 3], PHASE_OF = [0, 1, 2, 4], N = DUR.length;
     var cursor = $('.cursor', demo), detBtn = $('[data-hero-det]', demo), pop = $('.hero-pop', demo), det = $('.hero-det', demo);
     // how small the Mac corner gets so the open popover fits the frame
+    // (closed popover while the cursor heads to the icon and it opens; already with details while the
+    // cursor heads to «Details», so the frame is ready before they expand), keeping a small margin under it
     var fit = function () {
       var s = parseFloat(getComputedStyle(hero).getPropertyValue('--s')) || 1;
-      var full = pop.offsetTop + pop.offsetHeight - det.offsetHeight + det.firstElementChild.scrollHeight + 12;
+      var full = pop.offsetTop + pop.offsetHeight - det.offsetHeight + (phase >= 5 ? det.firstElementChild.scrollHeight : 0) + 16;
       hero.style.setProperty('--s2', Math.min(s, hero.clientHeight / full).toFixed(3));
     };
+    // a long clock (English, other fonts) moves the menu bar icons left instead of being cut off
+    var fitBar = function () {
+      var c = $('.mb-clock', demo), room = demo.offsetWidth - 14 - c.scrollWidth - 14 - 498;
+      demo.style.setProperty('--mbx', Math.min(0, Math.floor(room)) + 'px');
+    };
+    fitBar();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBar);
     // where the “Details” link sits, in the demo's own (unscaled) pixels
     var aimDetails = function () {
       var d = demo.getBoundingClientRect(), b = detBtn.getBoundingClientRect(), k = d.width / demo.offsetWidth;
@@ -153,7 +162,7 @@
     var setPhase = function (p) {
       phase = p;
       if (p === 5 || p === 6) aimDetails(); else { cursor.style.left = ''; cursor.style.top = ''; }
-      if (p === 6) fit();
+      if (p >= 3) fit();
       demo.setAttribute('data-phase', p); hero.setAttribute('data-phase', p);
       $('[data-icon]', demo).setAttribute('aria-expanded', p >= 4 ? 'true' : 'false');
       detBtn.setAttribute('aria-expanded', p === 6 ? 'true' : 'false');
@@ -192,7 +201,7 @@
     steps.forEach(function (b, i) { b.addEventListener('click', function () { started = true; jump(PHASE_OF[i]); }); });
     $('[data-icon]', demo).addEventListener('click', function () { started = true; jump(phase >= 4 ? 2 : 4); });
     detBtn.addEventListener('click', function () { started = true; jump(phase === 6 ? 4 : 6); });
-    window.addEventListener('resize', function () { if (phase === 6) fit(); });
+    window.addEventListener('resize', function () { fitBar(); if (phase >= 3) fit(); });
     $('[data-recheck]', demo).addEventListener('click', function () { started = true; jump(1); });
   }
 
