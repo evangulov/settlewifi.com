@@ -103,7 +103,12 @@ section[id],#how{scroll-margin-top:84px}
 .pop-net{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#6e6e73;min-width:0}
 .pop-net .wifi{width:13px;height:10px;flex-shrink:0}
 .pop-net span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pop-head{display:flex;align-items:center;gap:10px}
+.pop-id{flex:1;min-width:0}
 .pop-meta{margin-top:2px;padding-left:19px;display:flex;gap:4px;font-size:11px;color:#6e6e73;white-space:nowrap;overflow:hidden}
+.pf-r{display:flex;align-items:center;gap:8px}
+button.mbtn{font-family:inherit;color:#1d1d1f;cursor:pointer}
+button.mbtn:hover{background:#f2f2f4}
 .linkbtn{padding:0;border:0;background:none;color:#3a3a3c;cursor:pointer;text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}
 .linkbtn:hover{color:#000;text-decoration-color:currentColor}
 .pop-title{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:22px;font-weight:700;letter-spacing:-.02em}
@@ -125,8 +130,6 @@ section[id],#how{scroll-margin-top:84px}
 .metrics small{font-size:11px;color:#6e6e73}
 .metrics dd{margin:0;white-space:nowrap;color:#6e6e73}
 .metrics b{color:#1d1d1f}
-.pop-ext{margin:10px 0 0;display:flex;flex-direction:column;gap:2px;font-size:12px}
-.pop-ext span{font-size:11px;line-height:1.35;color:#6e6e73}
 .pop-act{margin-top:16px;display:flex;justify-content:flex-end}
 .mbtn{height:24px;padding:0 10px;display:inline-flex;align-items:center;border-radius:6px;font-size:12px;font-weight:500;background:#fff;border:1px solid rgba(0,0,0,.15)}
 .mbtn.blue{background:#0a64d8;border-color:#0a64d8;color:#fff}
