@@ -455,6 +455,7 @@ button.mbtn:hover{background:#f2f2f4}
 .drow dt{font-size:18px;font-weight:600;color:#1d1d1f}
 .drow dd{margin:0;font-size:18px;line-height:1.55;color:#3a3a3c}
 .doc code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.86em;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.06);color:#1d1d1f;word-break:break-word}
+.doc .cmd code{background:none;color:#f5f5f7;padding:0;border-radius:0;font-size:inherit;white-space:pre;word-break:normal}
 .rlist{border-top:1px solid rgba(0,0,0,.1)}
 .rrow{display:grid;grid-template-columns:220px 170px minmax(0,1fr);gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.1)}
 .rhost{font-size:18px;font-weight:600;color:#1d1d1f;word-break:break-word}
