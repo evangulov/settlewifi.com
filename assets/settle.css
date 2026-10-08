@@ -521,8 +521,8 @@ body,h1,h2,h3,.h1,.h2,.foot-word,.res-exp-say{font-family:"Onest",-apple-system,
 /* title typing (JS only; without JS or with reduced motion the title is simply there) */
 .h1.typing .tch{visibility:hidden}
 .h1.typing .tch.on{visibility:visible}
-.h1 .caret{display:inline-block;position:relative;width:0;height:0;vertical-align:baseline;transition:opacity .3s ease}
-.h1 .caret::after{content:"";position:absolute;left:.04em;bottom:-.08em;width:.07em;height:.92em;border-radius:.02em;background:var(--accent);animation:blink 1.06s steps(1) infinite}
+.h1 .caret{display:inline;position:relative;transition:opacity .3s ease}
+.h1 .caret::after{content:"";position:absolute;left:.04em;top:.04em;width:.07em;height:.84em;border-radius:.02em;background:var(--accent);animation:blink 1.06s steps(1) infinite}
 .h1 .caret.off{opacity:0}
 @keyframes blink{0%{opacity:1}50%{opacity:0}}
 /* demo waits for the title */
@@ -542,3 +542,23 @@ body,h1,h2,h3,.h1,.h2,.foot-word,.res-exp-say{font-family:"Onest",-apple-system,
 .foot-word.done .pt{opacity:0;transform:scale(.3)}
 .foot-word.done .ck{opacity:1;transform:none}
 .foot-word:hover{color:#262a33}
+
+/* ---- 404 ---- */
+html:not(.ru) .e4-ru, html:not(.ru) .l-ru, html.ru .e4-en, html.ru .l-en{display:none}
+.e4{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);display:flex;align-items:center;padding:24px 0 96px;box-sizing:border-box}
+.e4 .wrap{width:100%;display:flex;flex-direction:column;align-items:center;gap:28px}
+.e4-n{display:flex;align-items:center;justify-content:center;gap:.04em;font-size:clamp(150px,24vw,340px);line-height:.8;font-weight:700;letter-spacing:-.06em;color:#262a33;user-select:none}
+.e4 .w0{display:block;width:.74em;height:.74em;margin:0 .02em;overflow:visible}
+.e4 .wd{fill:var(--accent)}
+.e4 .wa{fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;opacity:.14}
+.e4 .a1{animation:e4arc 1.8s ease-in-out infinite}.e4 .a2{animation:e4arc 1.8s ease-in-out .25s infinite}.e4 .a3{animation:e4arc 1.8s ease-in-out .5s infinite}
+@keyframes e4arc{0%,100%{opacity:.14}30%,55%{opacity:1}}
+.e4-t{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.e4 .h1{font-size:clamp(40px,5vw,72px);text-align:center}
+.e4 .lead{max-width:560px;color:#c7c7cc}
+.e4 .btns{justify-content:center}
+.js .e4 .e4-rest{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s var(--ease)}
+.js .e4.shown .e4-rest{opacity:1;transform:none}
+.js .e4.shown .btns.e4-rest{transition-delay:.12s}
+@media (max-width:700px){.e4 .btns{flex-direction:column;align-items:stretch;width:100%}.e4 .btns .btn{justify-content:center}}
+@media (prefers-reduced-motion:reduce){.e4 .wa{opacity:1}}

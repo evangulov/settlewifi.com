@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found&nbsp;— Settle</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f1013">
+<link rel="icon" href="/favicon.png">
+<script>(function(){var d=document.documentElement,ru=false,p=location.pathname;
+try{var s=localStorage.getItem('settle.lang');ru=/^\/ru(\/|$)/.test(p)?true:(s?s==='ru':/^ru\b/i.test(navigator.language||''));}catch(e){ru=/^\/ru(\/|$)/.test(p);}
+if(ru){d.classList.add('ru');d.lang='ru';document.title='Страница не найдена — Settle';}d.classList.add('js');})();</script>
+<link rel="stylesheet" href="/assets/settle.css?v=99150ca7">
+</head>
+<body>
+<header class="top dark">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><mask id="m1" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><path d="M7.8 12.3l2.9 2.9 5.6-6.2" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></mask><circle cx="12" cy="12" r="11" fill="currentColor" mask="url(#m1)"/></svg><span>Settle</span></a>
+    <a class="btn btn-light btn-s" href="/download/Settle.dmg"><span class="l-en">Download for Mac</span><span class="l-ru">Скачать для&nbsp;Mac</span></a>
+  </div>
+</header>
+<main class="e4">
+  <div class="wrap">
+    <div class="e4-n" role="img" aria-label="404"><span>4</span><svg class="w0" viewBox="0 0 100 100" aria-hidden="true"><circle class="wd" cx="50" cy="80" r="7"/><path class="wa a1" d="M33 63a24 24 0 0 1 34 0"/><path class="wa a2" d="M20 50a42 42 0 0 1 60 0"/><path class="wa a3" d="M7 37a60 60 0 0 1 86 0"/></svg><span>4</span></div>
+    <div class="e4-t e4-en" lang="en">
+      <h1 class="h1">Can’t work <span class="accent">here.</span></h1>
+      <p class="lead e4-rest">This page doesn’t exist. The homepage works, though.</p>
+      <div class="btns e4-rest"><a class="btn btn-light" href="/">Go to the homepage</a><a class="btn btn-ghost" href="/download/Settle.dmg">Download for Mac</a></div>
+    </div>
+    <div class="e4-t e4-ru" lang="ru">
+      <h1 class="h1">Тут не <span class="accent">поработать.</span></h1>
+      <p class="lead e4-rest">Такой страницы нет. Зато на&nbsp;главной&nbsp;— можно.</p>
+      <div class="btns e4-rest"><a class="btn btn-light" href="/ru/">На&nbsp;главную</a><a class="btn btn-ghost" href="/download/Settle.dmg">Скачать для&nbsp;Mac</a></div>
+    </div>
+  </div>
+</main>
+<script>(function(){
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var ru=document.documentElement.classList.contains('ru');
+var box=document.querySelector(ru?'.e4-t.e4-ru':'.e4-t.e4-en'), page=document.querySelector('.e4');
+if(!box||reduce){page.classList.add('shown');return;}
+var h1=box.querySelector('.h1'), ch=[];
+h1.setAttribute('aria-label',h1.textContent);
+(function wrap(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){
+  if(c.nodeType===3){var f=document.createDocumentFragment();Array.from(c.textContent).forEach(function(x){var s=document.createElement('span');s.className='tch';s.textContent=x;s.setAttribute('aria-hidden','true');f.appendChild(s);ch.push(s);});c.parentNode.replaceChild(f,c);}
+  else if(c.nodeType===1)wrap(c);});})(h1);
+var caret=document.createElement('span');caret.className='caret';caret.setAttribute('aria-hidden','true');
+h1.insertBefore(caret,h1.firstChild);h1.classList.add('typing');
+var PACE=[95,70,110,80,75,140,85,70,150,90,70,85,120,95,75,110,80,70,95,85,120,160];
+var step=function(i){
+  if(i>=ch.length){setTimeout(function(){page.classList.add('shown');},250);setTimeout(function(){caret.classList.add('off');},1600);return;}
+  ch[i].classList.add('on');ch[i].parentNode.insertBefore(caret,ch[i].nextSibling);
+  setTimeout(function(){step(i+1);},PACE[(i+1)%PACE.length]);};
+setTimeout(function(){step(0);},900);
+})();</script>
+</body>
+</html>
