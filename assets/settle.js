@@ -217,8 +217,11 @@
       var d = demo.getBoundingClientRect(), b = detBtn.getBoundingClientRect(), k = d.width / demo.offsetWidth;
       cursor.style.left = ((b.left - d.left) / k + 14) + 'px'; cursor.style.top = ((b.top - d.top) / k + 6) + 'px';
     };
-    var phase = 4, timer = null, pressT = null, paused = reduce, visible = false, started = false;
-    var setPhase = function (p) {
+    var phase = 4, timer = null, pressT = null, paused = reduce, visible = false, started = false, left = 0, tStart = 0;
+    // natural = the demo moved on by itself; then a step that spans several phases keeps its bar running
+    var setPhase = function (p, natural) {
+      var prevStep = STEP_OF[phase];
+      clearTimeout(timer); timer = null; left = DUR[p];
       phase = p;
       if (p === 5 || p === 6) aimDetails(); else { cursor.style.left = ''; cursor.style.top = ''; }
       if (p >= 3) fit();
@@ -226,19 +229,27 @@
       $('[data-icon]', demo).setAttribute('aria-expanded', p >= 4 ? 'true' : 'false');
       detBtn.setAttribute('aria-expanded', p === 6 ? 'true' : 'false');
       detBtn.textContent = detBtn.getAttribute(p === 6 ? 'data-less' : 'data-more');
-      var s = STEP_OF[p];
+      var s = STEP_OF[p], fresh = !natural || s !== prevStep;
+      // the bar runs for everything left of this step: from this phase to the step's last phase
+      var rest = 0; for (var q = p; q < N && STEP_OF[q] === s; q++) rest += DUR[q];
       steps.forEach(function (b, i) {
         b.classList.toggle('on', i === s); b.classList.toggle('done', i < s);
-        if (i === s) { b.setAttribute('aria-current', 'step'); b.style.setProperty('--dur', (p === 3 ? DUR[3] + DUR[4] + DUR[5] + DUR[6] : DUR[p]) + 'ms'); }
-        else b.removeAttribute('aria-current');
-        var bar = b.querySelector('.step-bar i'); if (i === s) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+        if (i === s) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+        if (i === s && fresh) {
+          b.style.setProperty('--dur', rest + 'ms');
+          var bar = b.querySelector('.step-bar i'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
+        }
       });
       if (p === 4 || p === 6) { demo.classList.add('press'); clearTimeout(pressT); pressT = setTimeout(function () { demo.classList.remove('press'); }, 170); }
     };
+    // keeps the phase timer and the step bar in sync: time already spent is not counted twice after a pause
     var schedule = function () {
-      clearTimeout(timer);
-      if (paused || !visible || document.hidden) return;
-      timer = setTimeout(function () { setPhase((phase + 1) % N); schedule(); }, DUR[phase]);
+      if (timer) { clearTimeout(timer); timer = null; left = Math.max(0, left - (Date.now() - tStart)); }
+      var hold = paused || !visible || document.hidden;
+      row.classList.toggle('hold', hold);
+      if (hold) return;
+      tStart = Date.now();
+      timer = setTimeout(function () { timer = null; setPhase((phase + 1) % N, true); schedule(); }, left);
     };
     var jump = function (p) { setPhase(p); schedule(); };
     var setPaused = function (v) {
