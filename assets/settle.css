@@ -501,8 +501,19 @@ body,h1,h2,h3,.h1,.h2,.foot-word,.res-exp-say{font-family:"Onest",-apple-system,
  .howrow .step-bar i{width:100%;height:0}
  .howrow .step.on .step-bar i{height:100%;animation-name:vfill}
  .howrow .step.done .step-bar i{height:0}
- .paused .howrow .step.on .step-bar i,.no-motion .howrow .step.on .step-bar i{animation:none}
+ .howrow.paused .step.on .step-bar i{animation-play-state:paused}
+ .howrow.no-motion .step.on .step-bar i{animation:none}
 }
 @media (max-width:1300px) and (min-width:1201px){.stage{--s:1.7}}
 @media (max-width:1200px) and (min-width:1001px){.stage{--s:1.25}}
 @media (max-width:700px){.stage{border-radius:10px}}
+
+/* pause: under the demo window, never over the interface */
+.stagecol{position:relative;min-width:0}
+.stagecol .pausebtn{position:absolute;left:0;top:calc(100% + 16px);bottom:auto;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.stagecol .pausebtn:hover{background:rgba(255,255,255,.14)}
+@media (max-width:1000px){.howrow{gap:76px}}
+@media (max-width:700px){.howrow{gap:40px}}
+/* focus ring only for the keyboard */
+.step:focus:not(:focus-visible){outline:none}
+.howrow.paused .step.on .step-bar i{animation-play-state:paused}

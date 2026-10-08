@@ -153,7 +153,8 @@
   // ---- hero: connect → check → result → details
   var hero = $('[data-hero]');
   if (hero) {
-    var demo = $('.demo-in', hero), steps = $$('.step'), pauseBtn = $('[data-pause]', hero);
+    var row = hero.closest('.howrow') || hero;
+    var demo = $('.demo-in', hero), steps = $$('.step'), pauseBtn = $('[data-pause]', row);
     var DUR = [2000, 2600, 3400, 1400, 2600, 1400, 6500], STEP_OF = [0, 1, 2, 3, 3, 3, 3], PHASE_OF = [0, 1, 2, 4], N = DUR.length;
     var cursor = $('.cursor', demo), detBtn = $('[data-hero-det]', demo), pop = $('.hero-pop', demo), det = $('.hero-det', demo);
     // how small the Mac corner gets so the open popover fits the frame
@@ -201,11 +202,11 @@
     };
     var jump = function (p) { setPhase(p); schedule(); };
     var setPaused = function (v) {
-      paused = v; hero.classList.toggle('paused', v);
+      paused = v; hero.classList.toggle('paused', v); row.classList.toggle('paused', v);
       pauseBtn.textContent = v ? pauseBtn.getAttribute('data-play-label') : pauseBtn.getAttribute('data-pause-label');
       schedule();
     };
-    if (reduce) { hero.classList.add('no-motion'); setPhase(4); }
+    if (reduce) { hero.classList.add('no-motion'); row.classList.add('no-motion'); setPhase(4); }
     else {
       setPhase(4);
       new IntersectionObserver(function (es) {
