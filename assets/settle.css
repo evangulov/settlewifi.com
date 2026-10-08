@@ -517,3 +517,18 @@ body,h1,h2,h3,.h1,.h2,.foot-word,.res-exp-say{font-family:"Onest",-apple-system,
 /* focus ring only for the keyboard */
 .step:focus:not(:focus-visible){outline:none}
 .howrow.paused .step.on .step-bar i{animation-play-state:paused}
+
+/* title typing (JS only; without JS or with reduced motion the title is simply there) */
+.h1.typing .tch{visibility:hidden}
+.h1.typing .tch.on{visibility:visible}
+.h1 .caret{display:inline-block;position:relative;width:0;height:0;vertical-align:baseline;transition:opacity .3s ease}
+.h1 .caret::after{content:"";position:absolute;left:.04em;bottom:-.08em;width:.07em;height:.92em;border-radius:.02em;background:var(--accent);animation:blink 1.06s steps(1) infinite}
+.h1 .caret.off{opacity:0}
+@keyframes blink{0%{opacity:1}50%{opacity:0}}
+/* demo waits for the title */
+.howrow.pre .step.on{color:var(--sub2)}
+.howrow.pre .step.on .step-t{font-weight:400}
+.howrow.pre .step.on .step-n{color:var(--sub2)}
+.howrow.pre .step-bar i{animation:none!important;width:0!important;height:0!important}
+.howrow.pre .demo-in .mb-wifi{animation:none}
+.howrow.pre .pausebtn{visibility:hidden}

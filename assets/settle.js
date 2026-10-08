@@ -150,6 +150,46 @@
     reveals.forEach(function (e) { ro.observe(e); });
   }
 
+  // ---- the title types itself like on a keyboard, then the demo starts
+  var titleDone = true, afterTitle = [];
+  var whenTitle = function (f) { if (titleDone) f(true); else afterTitle.push(f); };
+  var title = $('.hero-title .h1');
+  if (title && !reduce && 'IntersectionObserver' in window) {
+    titleDone = false;
+    title.setAttribute('aria-label', title.textContent);
+    var tch = [];
+    (function wrap(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          Array.from(n.textContent).forEach(function (c) {
+            var sp = document.createElement('span'); sp.className = 'tch'; sp.textContent = c; sp.setAttribute('aria-hidden', 'true');
+            frag.appendChild(sp); tch.push(sp);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) wrap(n);
+      });
+    })(title);
+    var caret = document.createElement('span'); caret.className = 'caret'; caret.setAttribute('aria-hidden', 'true');
+    title.insertBefore(caret, title.firstChild);
+    title.classList.add('typing');
+    // uneven pace, a short pause on spaces, a beat before the accent word
+    var PACE = [95, 70, 110, 80, 75, 140, 85, 70, 150, 90, 70, 85, 210, 95, 75, 110, 80, 70, 95, 85, 120, 160];
+    var typeFrom = function (i) {
+      if (i >= tch.length) {
+        titleDone = true; afterTitle.splice(0).forEach(function (f) { f(false); });
+        setTimeout(function () { caret.classList.add('off'); }, 1600);
+        return;
+      }
+      tch[i].classList.add('on'); tch[i].parentNode.insertBefore(caret, tch[i].nextSibling);
+      setTimeout(function () { typeFrom(i + 1); }, PACE[(i + 1) % PACE.length]);
+    };
+    var tio = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { tio.disconnect(); setTimeout(function () { typeFrom(0); }, 500); }
+    }, { threshold: 0.6 });
+    tio.observe(title);
+  }
+
   // ---- hero: connect → check → result → details
   var hero = $('[data-hero]');
   if (hero) {
@@ -206,22 +246,32 @@
       pauseBtn.textContent = v ? pauseBtn.getAttribute('data-play-label') : pauseBtn.getAttribute('data-pause-label');
       schedule();
     };
+    var userTook = false;
+    var take = function () { userTook = true; started = true; row.classList.remove('pre'); };
     if (reduce) { hero.classList.add('no-motion'); row.classList.add('no-motion'); setPhase(4); }
     else {
-      setPhase(4);
+      // while the title is typing, the demo waits: no step lit, no pause button, nothing moving
+      if (titleDone) setPhase(4); else { setPhase(0); row.classList.add('pre'); }
       new IntersectionObserver(function (es) {
         visible = es[0].isIntersecting; hero.classList.toggle('off', !visible);
-        if (visible && !started) { started = true; setTimeout(function () { jump(0); }, 1200); }
+        if (visible && !started) {
+          started = true;
+          whenTitle(function (already) {
+            if (userTook) return;
+            row.classList.remove('pre');
+            setTimeout(function () { if (!userTook) jump(0); }, already ? 1200 : 500);
+          });
+        }
         else schedule();
       }, { threshold: 0.35 }).observe(hero);
       document.addEventListener('visibilitychange', function () { hero.classList.toggle('off', document.hidden || !visible); schedule(); });
     }
     pauseBtn.addEventListener('click', function () { setPaused(!paused); });
-    steps.forEach(function (b, i) { b.addEventListener('click', function () { started = true; jump(PHASE_OF[i]); }); });
-    $('[data-icon]', demo).addEventListener('click', function () { started = true; jump(phase >= 4 ? 2 : 4); });
-    detBtn.addEventListener('click', function () { started = true; jump(phase === 6 ? 4 : 6); });
+    steps.forEach(function (b, i) { b.addEventListener('click', function () { take(); jump(PHASE_OF[i]); }); });
+    $('[data-icon]', demo).addEventListener('click', function () { take(); jump(phase >= 4 ? 2 : 4); });
+    detBtn.addEventListener('click', function () { take(); jump(phase === 6 ? 4 : 6); });
     window.addEventListener('resize', function () { fitBar(); if (phase >= 3) fit(); });
-    $('[data-recheck]', demo).addEventListener('click', function () { started = true; jump(1); });
+    $('[data-recheck]', demo).addEventListener('click', function () { take(); jump(1); });
   }
 
   var restart = function (el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
