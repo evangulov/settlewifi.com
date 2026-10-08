@@ -336,4 +336,39 @@
       b.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
+
+  // ---- footer word: hover (or, without a mouse, the first time it comes into view) runs a little «measurement»
+  var fw = $('[data-fw]');
+  if (fw && !reduce) {
+    var fls = $$('.fl', fw), fwT = [];
+    var fwClear = function () { fwT.forEach(clearTimeout); fwT = []; };
+    var fwRun = function () {
+      fwClear(); fw.classList.remove('done'); fw.style.textShadow = 'none';
+      fls.forEach(function (l, i) {
+        fwT.push(setTimeout(function () {
+          l.style.color = 'var(--accent)'; l.style.transform = 'translateY(-6px)';
+          fwT.push(setTimeout(function () { l.style.transform = 'none'; }, 180));
+        }, 120 + i * 130));
+      });
+      var end = 120 + fls.length * 130 + 120;
+      fwT.push(setTimeout(function () {
+        fw.classList.add('done');
+        fw.style.transition = 'text-shadow .3s ease'; fw.style.textShadow = '0 0 60px rgba(138,168,255,.55)';
+        fls.forEach(function (l) { l.style.color = '#f5f5f7'; });
+      }, end));
+      fwT.push(setTimeout(function () { fw.style.transition = 'text-shadow 1.2s ease'; fw.style.textShadow = '0 0 0 rgba(138,168,255,0)'; }, end + 700));
+    };
+    var fwReset = function () {
+      fwClear(); fw.classList.remove('done'); fw.style.textShadow = 'none';
+      fls.forEach(function (l) { l.style.color = ''; l.style.transform = ''; });
+    };
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    if (canHover) {
+      fw.addEventListener('mouseenter', fwRun);
+      fw.addEventListener('mouseleave', fwReset);
+    } else if ('IntersectionObserver' in window) {
+      var fwio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fwio.disconnect(); fwRun(); } }, { threshold: 0.8 });
+      fwio.observe(fw);
+    }
+  }
 })();
