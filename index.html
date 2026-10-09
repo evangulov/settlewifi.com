@@ -76,7 +76,6 @@ try {
         <p class="lead">Join a Wi‑Fi network. Settle checks whether it can handle work and calls.</p>
         <div class="btns">
           <a class="btn btn-light" href="/download/Settle.dmg">Download for Mac</a>
-          <button type="button" class="btn btn-soon" disabled>Windows — coming soon</button>
           <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
       </div>
@@ -161,7 +160,7 @@ try {
     <h2 class="h2 reveal">Questions</h2>
     <div class="qas reveal"><div class="qa open">
       <h3><button type="button" class="q" aria-expanded="true" aria-controls="a0" id="q0"><span>How is Settle different from a speed test?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a0" role="region" aria-labelledby="q0"><div><p>A speed test shows megabits. Settle turns the measurement into an answer: is the network good enough for websites, calls and big files. The numbers stay in the details.</p></div></div>
+      <div class="collapse" id="a0" role="region" aria-labelledby="q0"><div><p>Settle checks the Wi‑Fi on its own once you connect and tells you whether it’s good enough for work and calls. For calls, it looks beyond download speed — at upload speed too, and at how quickly the network responds when it’s busy. You’ll find the numbers under Details.</p></div></div>
     </div><div class="qa">
       <h3><button type="button" class="q" aria-expanded="false" aria-controls="a1" id="q1"><span>Why does Settle ask for Location access?</span><i aria-hidden="true"></i></button></h3>
       <div class="collapse" id="a1" role="region" aria-labelledby="q1"><div><p>macOS only shares Wi‑Fi network names together with Location access. Settle uses the names to recognise familiar networks. It doesn’t use your location, and the check works without this access too.</p></div></div>
@@ -169,14 +168,17 @@ try {
       <h3><button type="button" class="q" aria-expanded="false" aria-controls="a2" id="q2"><span>What if the café wants me to sign in?</span><i aria-hidden="true"></i></button></h3>
       <div class="collapse" id="a2" role="region" aria-labelledby="q2"><div><p>Settle notices the sign-in page and offers to open it. The check starts once you’re in.</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a3" id="q3"><span>Does this guarantee my call won’t drop?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a3" role="region" aria-labelledby="q3"><div><p>No. Settle rates the network at the moment of the check. If response times rise noticeably later, you get a notification — when notifications are on.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a3" id="q3"><span>I can’t see Settle in the menu bar. What should I do?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a3" role="region" aria-labelledby="q3"><div><p>If the icon is there but gets lost among others, move it: hold ⌘ (Command) and drag the Settle icon closer to the clock. If you can’t see it at all, it most likely ran out of room. Choose Apple menu → System Settings → Menu Bar and turn off the icons you don’t need. Under Allow in the Menu Bar, make sure Settle is on. On macOS 15 and earlier, Apple’s icons are turned off under Control Center.</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a4" id="q4"><span>Is it safe?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a4" role="region" aria-labelledby="q4"><div><p>Yes. Settle is signed by its developer and checked by Apple for malicious software, so macOS opens it without warnings. To remove it, drag it to the Trash like any other app.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a4" id="q4"><span>Does this guarantee my call won’t drop?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a4" role="region" aria-labelledby="q4"><div><p>No. Settle rates the network at the moment of the check. If response times rise noticeably later, you get a notification — when notifications are on.</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a5" id="q5"><span>Where does my data go?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a5" role="region" aria-labelledby="q5"><div><p>To measure, Settle contacts test servers run by Cloudflare, Selectel and Apple. Your check history stays on your Mac. No account, no product analytics.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a5" id="q5"><span>Is it safe?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a5" role="region" aria-labelledby="q5"><div><p>Yes. Settle is signed by its developer and checked by Apple for malicious software, so macOS opens it without warnings. To remove it, drag it to the Trash like any other app.</p></div></div>
+    </div><div class="qa">
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a6" id="q6"><span>Where does my data go?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a6" role="region" aria-labelledby="q6"><div><p>To measure, Settle contacts test servers run by Cloudflare, Selectel and Apple. Your check history stays on your Mac. No account, no product analytics.</p></div></div>
     </div></div>
   </div>
 </section></main>

@@ -69,7 +69,6 @@
         <p class="lead">Подключись к&nbsp;Wi‑Fi. Settle проверит, хватит ли&nbsp;сети для&nbsp;работы и&nbsp;созвонов.</p>
         <div class="btns">
           <a class="btn btn-light" href="/download/Settle.dmg">Скачать для&nbsp;Mac</a>
-          <button type="button" class="btn btn-soon" disabled>Для&nbsp;Windows — в разработке</button>
           <a class="btn btn-ghost" href="#how">Как&nbsp;это&nbsp;работает</a>
         </div>
       </div>
@@ -154,7 +153,7 @@
     <h2 class="h2 reveal">Вопросы</h2>
     <div class="qas reveal"><div class="qa open">
       <h3><button type="button" class="q" aria-expanded="true" aria-controls="a0" id="q0"><span>Чем Settle отличается от&nbsp;теста скорости?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a0" role="region" aria-labelledby="q0"><div><p>Тест скорости показывает мегабиты. Settle переводит замер в&nbsp;ответ: хватит ли&nbsp;сети для&nbsp;сайтов, звонков и&nbsp;больших файлов. Цифры остаются в&nbsp;подробностях.</p></div></div>
+      <div class="collapse" id="a0" role="region" aria-labelledby="q0"><div><p>Settle сам проверяет Wi‑Fi после подключения и&nbsp;подсказывает, хватит ли&nbsp;сети для&nbsp;работы и&nbsp;звонков. Для&nbsp;звонков он&nbsp;смотрит не&nbsp;только на&nbsp;скорость скачивания, но&nbsp;и&nbsp;на&nbsp;скорость отправки и&nbsp;на&nbsp;отклик, когда сеть занята. Цифры можно посмотреть в&nbsp;«Подробнее».</p></div></div>
     </div><div class="qa">
       <h3><button type="button" class="q" aria-expanded="false" aria-controls="a1" id="q1"><span>Зачем Settle доступ к&nbsp;геолокации?</span><i aria-hidden="true"></i></button></h3>
       <div class="collapse" id="a1" role="region" aria-labelledby="q1"><div><p>macOS выдаёт названия Wi‑Fi‑сетей только вместе с&nbsp;доступом к&nbsp;геолокации. Settle нужны названия, чтобы узнавать знакомые сети. Само местоположение он&nbsp;не&nbsp;использует, а&nbsp;без&nbsp;доступа проверка тоже работает.</p></div></div>
@@ -162,14 +161,17 @@
       <h3><button type="button" class="q" aria-expanded="false" aria-controls="a2" id="q2"><span>Что, если кафе просит войти в&nbsp;сеть?</span><i aria-hidden="true"></i></button></h3>
       <div class="collapse" id="a2" role="region" aria-labelledby="q2"><div><p>Settle заметит страницу входа и&nbsp;предложит её&nbsp;открыть. Проверка начнётся после входа.</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a3" id="q3"><span>Это&nbsp;гарантия, что&nbsp;звонок не&nbsp;прервётся?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a3" role="region" aria-labelledby="q3"><div><p>Нет. Settle оценивает сеть в&nbsp;момент проверки. Если позже отклик заметно вырастет, придёт уведомление&nbsp;— когда уведомления включены.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a3" id="q3"><span>Не&nbsp;вижу Settle в&nbsp;строке меню. Что&nbsp;делать?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a3" role="region" aria-labelledby="q3"><div><p>Если значок есть, но&nbsp;теряется среди других, передвинь его: удерживай ⌘ (Command) и&nbsp;перетащи значок Settle ближе к&nbsp;часам. Если значка не&nbsp;видно совсем, скорее всего, ему не&nbsp;хватило места. Открой меню Apple → «Системные настройки» → «Строка меню» и&nbsp;выключи значки, которые тебе не&nbsp;нужны. В&nbsp;разделе «Разрешить в&nbsp;строке меню» проверь, что&nbsp;Settle включён. На&nbsp;macOS 15 и&nbsp;раньше системные значки выключаются в&nbsp;разделе «Пункт управления».</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a4" id="q4"><span>Это&nbsp;безопасно?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a4" role="region" aria-labelledby="q4"><div><p>Да. Settle подписан разработчиком и&nbsp;проверен Apple на&nbsp;вредоносный код, поэтому macOS откроет его без&nbsp;предупреждений. Удалить его можно как&nbsp;любое приложение&nbsp;— перетащить в&nbsp;Корзину.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a4" id="q4"><span>Это&nbsp;гарантия, что&nbsp;звонок не&nbsp;прервётся?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a4" role="region" aria-labelledby="q4"><div><p>Нет. Settle оценивает сеть в&nbsp;момент проверки. Если позже отклик заметно вырастет, придёт уведомление&nbsp;— когда уведомления включены.</p></div></div>
     </div><div class="qa">
-      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a5" id="q5"><span>Куда уходят данные?</span><i aria-hidden="true"></i></button></h3>
-      <div class="collapse" id="a5" role="region" aria-labelledby="q5"><div><p>Для&nbsp;замера Settle обращается к&nbsp;тестовым серверам Cloudflare, Selectel и&nbsp;Apple. История проверок хранится на&nbsp;Mac. Аккаунта и&nbsp;продуктовой аналитики нет.</p></div></div>
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a5" id="q5"><span>Это&nbsp;безопасно?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a5" role="region" aria-labelledby="q5"><div><p>Да. Settle подписан разработчиком и&nbsp;проверен Apple на&nbsp;вредоносный код, поэтому macOS откроет его без&nbsp;предупреждений. Удалить его можно как&nbsp;любое приложение&nbsp;— перетащить в&nbsp;Корзину.</p></div></div>
+    </div><div class="qa">
+      <h3><button type="button" class="q" aria-expanded="false" aria-controls="a6" id="q6"><span>Куда уходят данные?</span><i aria-hidden="true"></i></button></h3>
+      <div class="collapse" id="a6" role="region" aria-labelledby="q6"><div><p>Для&nbsp;замера Settle обращается к&nbsp;тестовым серверам Cloudflare, Selectel и&nbsp;Apple. История проверок хранится на&nbsp;Mac. Аккаунта и&nbsp;продуктовой аналитики нет.</p></div></div>
     </div></div>
   </div>
 </section></main>
