@@ -194,8 +194,8 @@
   var hero = $('[data-hero]');
   if (hero) {
     var row = hero.closest('.howrow') || hero;
-    var demo = $('.demo-in', hero), steps = $$('.step'), pauseBtn = $('[data-pause]', row);
-    var DUR = [2000, 2600, 3400, 1400, 2600, 1400, 6500], STEP_OF = [0, 1, 2, 3, 3, 3, 3], PHASE_OF = [0, 1, 2, 4], N = DUR.length;
+    var demo = $('.demo-in', hero), cap = $('.stepcap', row), steps = $$('.step'), pauseBtn = $('[data-pause]', row);
+    var DUR = [2000, 2600, 3400, 1400, 2600, 1400, 6500], STEP_OF = [0, 1, 2, 3, 3, 4, 4], PHASE_OF = [0, 1, 2, 4, 6], N = DUR.length;
     var cursor = $('.cursor', demo), detBtn = $('[data-hero-det]', demo), pop = $('.hero-pop', demo), det = $('.hero-det', demo);
     // how small the Mac corner gets so the open popover fits the frame
     // (closed popover while the cursor heads to the icon and it opens; already with details while the
@@ -235,6 +235,7 @@
       steps.forEach(function (b, i) {
         b.classList.toggle('on', i === s); b.classList.toggle('done', i < s);
         if (i === s) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+        if (i === s && cap) { cap.firstChild.textContent = '0' + (i + 1); cap.lastChild.textContent = b.querySelector('.step-t').textContent; }
         if (i === s && fresh) {
           b.style.setProperty('--dur', rest + 'ms');
           var bar = b.querySelector('.step-bar i'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';

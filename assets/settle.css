@@ -534,6 +534,20 @@ body,h1,h2,h3,.h1,.h2,.foot-word,.res-exp-say{font-family:"Onest",-apple-system,
 .howrow.pre .demo-in .mb-wifi{animation:none}
 .howrow.pre .pausebtn{visibility:hidden}
 
+/* five steps: below the side-by-side layout the text doesn't fit in a row, so the steps become
+   a row of segments (done / now / next) and the current step is spelled out under them */
+.stepcap{display:none}
+@media (max-width:1000px){
+ .howrow .steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;row-gap:0}
+ .howrow .step{padding:18px 0;gap:0}
+ .howrow .step-bar{margin:0}
+ .howrow .step-n,.howrow .step-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .stepcap{display:block;order:3;margin:-62px 0 0;min-height:46px;font-size:19px;line-height:1.35;font-weight:600;color:var(--paper)}
+ .stepcap b{margin-right:4px;font-size:14px;font-weight:700;color:var(--accent)}
+ .howrow.pre .stepcap{visibility:hidden}
+}
+@media (max-width:700px){.stepcap{margin-top:-30px;font-size:17px}}
+
 /* footer word: on hover it «measures» — letters fill blue left to right, the dot turns into Settle's check, a flash, then calm */
 .foot-word .fl{display:inline-block;transition:color .5s ease,transform .3s ease}
 .foot-word .fdot{position:relative;display:inline-block}
