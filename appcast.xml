@@ -3,15 +3,33 @@
     <channel>
         <title>Settle</title>
         <item>
+            <title>0.3.2</title>
+            <pubDate>Sun, 11 Oct 2026 14:12:17 +0300</pubDate>
+            <link>https://settlewifi.com</link>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>0.3.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>You get the check result every time you connect — even at a familiar café or on your phone's hotspot. The network can be different each time.</li>
+<li>On a fast phone hotspot, Settle now always rates calls instead of just saying “Online”.</li>
+<li>After a check, the answer appears next to the icon for a few seconds — like “Good to work”. Settle is easier to spot in the menu bar.</li>
+<li>On a phone hotspot, Settle now says so: “Phone hotspot”.</li>
+</ul>]]></description>
+            <description xml:lang="ru"><![CDATA[<ul>
+<li>Результат проверки приходит при каждом подключении — даже в знакомом кафе и через интернет с телефона. Сеть может быть каждый раз другой.</li>
+<li>На быстрой раздаче с телефона Settle теперь всегда оценивает звонки, а не пишет «Интернет есть».</li>
+<li>После проверки рядом со значком на несколько секунд появляется ответ — например, «Работай». Так Settle легче найти в строке меню.</li>
+<li>При раздаче с телефона Settle так и пишет: «Раздача с телефона».</li>
+</ul>]]></description>
+            <enclosure url="https://settlewifi.com/download/Settle-0.3.2.zip" length="3342717" type="application/octet-stream" sparkle:edSignature="JMi0r+8enKmHaQ0cNPY2e5Oq3fn5xNfSkBJzOUhrpeNqINs51c4GfnJ6al2ym0rBk8MS04cb2zDoCuExeXVECg=="/>
+        </item>
+        <item>
             <title>0.3.1</title>
             <pubDate>Fri, 09 Oct 2026 16:58:24 +0300</pubDate>
             <link>https://settlewifi.com</link>
             <sparkle:version>8</sparkle:version>
             <sparkle:shortVersionString>0.3.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li>You can move the Settle icon: hold ⌘ (Command) and drag it along the menu bar. The first-launch tip now mentions it.</li>
-</ul>]]></description>
             <description xml:lang="ru"><![CDATA[<ul>
 <li>Значок Settle можно передвинуть: удерживай ⌘ (Command) и перетащи его по строке меню. Теперь об этом есть в подсказке при первом запуске.</li>
 </ul>]]></description>
