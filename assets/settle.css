@@ -371,7 +371,7 @@ button.mbtn:hover{background:#f2f2f4}
  .top-in{height:64px}
  .hero{padding:48px 0 64px}.hero .wrap{gap:40px}.hero-grid{gap:28px}.hero-side{gap:28px}
  .btns{flex-wrap:nowrap;gap:10px}.hero .btn{height:48px;padding:0 16px;font-size:16px}
- .hero .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hero .btns .btn{height:auto;min-height:52px;padding:8px 12px;justify-content:center;text-align:center;white-space:normal;line-height:1.2}.hero .btns .btn-ghost{grid-column:1/-1}
+ .hero .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hero .btns .btn{height:auto;min-height:52px;padding:8px 12px;justify-content:center;text-align:center;white-space:normal;line-height:1.2}
  .stage{--s:1.05;height:320px}.pausebtn{display:none}
  .demo-in .notif{left:312px;width:320px}
  .sec{padding:64px 0}.sec .sec-head{margin-bottom:28px;gap:12px}.h2{font-size:36px;letter-spacing:-.035em}.lead{font-size:18px}
