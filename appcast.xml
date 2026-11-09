@@ -3,43 +3,47 @@
     <channel>
         <title>Settle</title>
         <item>
+            <title>0.3.4</title>
+            <pubDate>Mon, 09 Nov 2026 19:31:23 +0200</pubDate>
+            <link>https://settlewifi.com</link>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>0.3.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Settle now refreshes its verdict on its own when you open its window — no need to press “Check again”.</li>
+<li>While you stay on the same network and it behaves as before, the menu bar verdict no longer turns into “Outdated”.</li>
+</ul>]]></description>
+            <description xml:lang="ru"><![CDATA[<ul>
+<li>Settle сам обновляет оценку, когда ты открываешь его окно, — нажимать «Проверить снова» больше не нужно.</li>
+<li>Пока ты в той же сети и она работает как раньше, оценка в строке меню не превращается в «Устарело».</li>
+</ul>]]></description>
+            <enclosure url="https://settlewifi.com/download/Settle-0.3.4.zip" length="3350670" type="application/octet-stream" sparkle:edSignature="vZTgtQVei2MFy00FXnbhsVo0tdRQW3N/QPBTcNLVyodZMC0ydpv/GIFz9GljFaROezG2M0oOErdpZXYhhBXjDw=="/>
+        </item>
+        <item>
+            <title>0.3.4</title>
+            <pubDate>Mon, 09 Nov 2026 19:28:51 +0200</pubDate>
+            <link>https://settlewifi.com</link>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>0.3.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Settle now refreshes its verdict on its own when you open its window — no need to press “Check again”.</li>
+<li>While you stay on the same network and it behaves as before, the menu bar verdict no longer turns into “Outdated”.</li>
+</ul>]]></description>
+            <description xml:lang="ru"><![CDATA[<ul>
+<li>Settle сам обновляет оценку, когда ты открываешь его окно, — нажимать «Проверить снова» больше не нужно.</li>
+<li>Пока ты в той же сети и она работает как раньше, оценка в строке меню не превращается в «Устарело».</li>
+</ul>]]></description>
+            <enclosure url="https://settlewifi.com/download/Settle-0.3.4.zip" length="3350639" type="application/octet-stream" sparkle:edSignature="bFmp7Eb7ic5zViumHu250DjQpgWHZlf1N5Z4nMnhQJ7F6vhs9NbC9meuibHiF5vNAbAGe6kGL+HzhVeo6VozDA=="/>
+        </item>
+        <item>
             <title>0.3.3</title>
             <pubDate>Thu, 29 Oct 2026 12:52:02 +0200</pubDate>
             <link>https://settlewifi.com</link>
             <sparkle:version>10</sparkle:version>
             <sparkle:shortVersionString>0.3.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li>Settle's menu now has a “Help improve Settle” switch. It stays off until you turn it on. If you do, Settle only reports that checks ran and which buttons you used — no network names, no locations, no measurement results.</li>
-</ul>]]></description>
-            <description xml:lang="ru"><![CDATA[<ul>
-<li>В меню Settle появился переключатель «Помогать улучшать Settle». Он выключен, пока ты сам его не включишь. Если включишь, Settle будет сообщать только, что проверки прошли и какие кнопки ты нажимал, — без названий сетей, мест и результатов измерений.</li>
-</ul>]]></description>
             <enclosure url="https://settlewifi.com/download/Settle-0.3.3.zip" length="3342824" type="application/octet-stream" sparkle:edSignature="dTn/cgtoGF8+EtClDFnyfZvjWJoZUKrGAUrJQh8FIcCc9cUNcu6D5wd40flrg2AIIQBV6Kn6r/kh0UPnSGBHBA=="/>
-        </item>
-        <item>
-            <title>0.3.2</title>
-            <pubDate>Sun, 11 Oct 2026 14:12:17 +0300</pubDate>
-            <link>https://settlewifi.com</link>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>0.3.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <description xml:lang="ru"><![CDATA[<ul>
-<li>Результат проверки приходит при каждом подключении — даже в знакомом кафе и через интернет с телефона. Сеть может быть каждый раз другой.</li>
-<li>На быстрой раздаче с телефона Settle теперь всегда оценивает звонки, а не пишет «Интернет есть».</li>
-<li>После проверки рядом со значком на несколько секунд появляется ответ — например, «Работай». Так Settle легче найти в строке меню.</li>
-<li>При раздаче с телефона Settle так и пишет: «Раздача с телефона».</li>
-</ul>]]></description>
-            <enclosure url="https://settlewifi.com/download/Settle-0.3.2.zip" length="3342717" type="application/octet-stream" sparkle:edSignature="JMi0r+8enKmHaQ0cNPY2e5Oq3fn5xNfSkBJzOUhrpeNqINs51c4GfnJ6al2ym0rBk8MS04cb2zDoCuExeXVECg=="/>
-        </item>
-        <item>
-            <title>0.3.1</title>
-            <pubDate>Fri, 09 Oct 2026 16:58:24 +0300</pubDate>
-            <link>https://settlewifi.com</link>
-            <sparkle:version>8</sparkle:version>
-            <sparkle:shortVersionString>0.3.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://settlewifi.com/download/Settle-0.3.1.zip" length="3318014" type="application/octet-stream" sparkle:edSignature="sIR2QqI2aKrRyf0VZwIEeIW54cpNvTTMaYcTLgMTKTJ0XPiC9KkTdyVapVq9esJ0oE8v6W/qFYIw0vBERlGzDw=="/>
         </item>
     </channel>
 </rss>
